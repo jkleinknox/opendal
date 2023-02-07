@@ -1,4 +1,4 @@
-// Copyright 2023 Datafuse Labs.
+// Copyright 2022 Datafuse Labs.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,20 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use ::opendal::services;
-use ::opendal::Operator;
-use pyo3::prelude::*;
-
-#[pyfunction]
-fn debug() -> PyResult<String> {
-    let op = Operator::create(services::Memory::default())
-        .unwrap()
-        .finish();
-    Ok(format!("{:?}", op.metadata()))
-}
-
-#[pymodule]
-fn opendal(_py: Python, m: &PyModule) -> PyResult<()> {
-    m.add_function(wrap_pyfunction!(debug, m)?)?;
-    Ok(())
-}
+mod backend;
+mod message;
+pub use backend::WebhdfsBuilder as Webhdfs;
+mod dir_stream;
+mod error;

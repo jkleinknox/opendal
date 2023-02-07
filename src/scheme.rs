@@ -76,6 +76,8 @@ pub enum Scheme {
     Sled,
     /// [webdav][crate::services::Webdav]: WebDAV support.
     Webdav,
+    /// [webhdfs][crate::services::Webhdfs]: WebHDFS RESTful API Services
+    Webhdfs,
     /// Custom that allow users to implement services outside of OpenDAL.
     ///
     /// # NOTE
@@ -138,6 +140,7 @@ impl FromStr for Scheme {
             "sled" => Ok(Scheme::Sled),
             "oss" => Ok(Scheme::Oss),
             "webdav" => Ok(Scheme::Webdav),
+            "webhdfs" => Ok(Scheme::Webhdfs),
             _ => Ok(Scheme::Custom(Box::leak(s.into_boxed_str()))),
         }
     }
@@ -174,6 +177,7 @@ impl From<Scheme> for &'static str {
             Scheme::Sled => "service-sled",
             Scheme::Oss => "oss",
             Scheme::Webdav => "webdav",
+            Scheme::Webhdfs => "webhdfs",
             Scheme::Custom(v) => v,
         }
     }

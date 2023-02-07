@@ -91,3 +91,6 @@ pub use self::sled::Sled;
 
 mod webdav;
 pub use webdav::Webdav;
+
+mod webhdfs;
+pub use webhdfs::Webhdfs;

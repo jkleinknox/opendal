@@ -87,3 +87,4 @@ behavior_tests!(Oss);
 behavior_tests!(S3);
 cfg_if::cfg_if! { if #[cfg(feature = "services-sled")] { behavior_tests!(Sled); }}
 behavior_tests!(Webdav);
+behavior_tests!(Webhdfs);

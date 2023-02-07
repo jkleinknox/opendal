@@ -33,6 +33,7 @@
 - [s3](https://opendal.databend.rs/opendal/services/struct.S3.html): [AWS S3](https://aws.amazon.com/s3/) alike services.
 - [sled](https://opendal.databend.rs/opendal/services/sled/index.html): [sled](https://crates.io/crates/sled) services support.
 - [webdav](https://opendal.databend.rs/opendal/services/struct.Webdav.html): [WebDAV](https://datatracker.ietf.org/doc/html/rfc4918) Service Support.
+- [webhdfs](https://opendal.databend.rs/opendal/services/struct.Webhdfs.html): [WebHDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html) Service Support.
 
 ## Features
 
