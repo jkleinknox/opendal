@@ -71,6 +71,9 @@ pub enum Scheme {
     Rocksdb,
     /// [s3][crate::services::S3]: AWS S3 alike services.
     S3,
+    /// [sled][crate::services::Sled]: Sled services
+    #[cfg(feature = "services-sled")]
+    Sled,
     /// [webdav][crate::services::Webdav]: WebDAV support.
     Webdav,
     /// Custom that allow users to implement services outside of OpenDAL.
@@ -131,6 +134,8 @@ impl FromStr for Scheme {
             #[cfg(feature = "services-rocksdb")]
             "rocksdb" => Ok(Scheme::Rocksdb),
             "s3" => Ok(Scheme::S3),
+            #[cfg(feature = "services-sled")]
+            "sled" => Ok(Scheme::Sled),
             "oss" => Ok(Scheme::Oss),
             "webdav" => Ok(Scheme::Webdav),
             _ => Ok(Scheme::Custom(Box::leak(s.into_boxed_str()))),
@@ -165,6 +170,8 @@ impl From<Scheme> for &'static str {
             #[cfg(feature = "services-rocksdb")]
             Scheme::Rocksdb => "service-rocksdb",
             Scheme::S3 => "s3",
+            #[cfg(feature = "services-sled")]
+            Scheme::Sled => "service-sled",
             Scheme::Oss => "oss",
             Scheme::Webdav => "webdav",
             Scheme::Custom(v) => v,
