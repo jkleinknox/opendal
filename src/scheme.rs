@@ -171,7 +171,7 @@ impl From<Scheme> for &'static str {
             #[cfg(feature = "services-redis")]
             Scheme::Redis => "redis",
             #[cfg(feature = "services-rocksdb")]
-            Scheme::Rocksdb => "service-rocksdb",
+            Scheme::Rocksdb => "rocksdb",
             Scheme::S3 => "s3",
             #[cfg(feature = "services-sled")]
             Scheme::Sled => "sled",
