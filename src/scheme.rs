@@ -174,7 +174,7 @@ impl From<Scheme> for &'static str {
             Scheme::Rocksdb => "service-rocksdb",
             Scheme::S3 => "s3",
             #[cfg(feature = "services-sled")]
-            Scheme::Sled => "service-sled",
+            Scheme::Sled => "sled",
             Scheme::Oss => "oss",
             Scheme::Webdav => "webdav",
             Scheme::Webhdfs => "webhdfs",
